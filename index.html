@@ -44,10 +44,10 @@
         ];
 
         document.onkeydown = function (e) {
-            if (e.keyCode === 37) {
+            if (e.keyCode === 37 && hero.left>=0) {
                 hero.left = hero.left - 10;
             }
-            if (e.keyCode === 39) {
+            if (e.keyCode === 39 && hero.left<=1150) {
                 hero.left = hero.left + 10;
             }
             if (e.keyCode === 32) {

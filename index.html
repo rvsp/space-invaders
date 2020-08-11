@@ -113,14 +113,51 @@
             }
         }
 
+        function enemyChecker(){
+            return enemies.some((data)=>data.top===645)
+        }
 
         function gameLoop() {
-            setTimeout(gameLoop, 1000);
+            let game = setTimeout(gameLoop, 1000);
             moveMissiles();
             drawMissiles();
             moveEnemies();
             drawEnemies();
             shooting();
+            // for game ending
+            function gameEnd(){
+                if(enemies.length===0){
+                let container = document.getElementById("background")
+                let result = document.createElement('div')
+                result.setAttribute('class','result');
+                result.innerText = "You Win";
+        
+                container.appendChild(result)
+
+                console.log("Win");
+        
+                clearTimeout(game)
+
+                document.onkeydown = function (e){
+                    // pass
+                }
+                
+                }else if(enemyChecker()){
+                    let container = document.getElementById("background")
+                    let result = document.createElement('div')
+                    result.setAttribute('class','result');
+                    result.innerText = "You Lose";
+        
+                    container.appendChild(result)
+
+                    console.log("Lose");
+                    clearTimeout(game)
+                    document.onkeydown = function (e){
+                    // pass
+                }
+                }
+            }
+            gameEnd();
         }
         gameLoop();
 

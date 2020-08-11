@@ -39,3 +39,15 @@
   height: 28px;
   position: absolute;
 }
+.result {
+  font-size: 50px;
+  width:250px;
+  height:70px;
+  background-color: white;
+  color: black;
+  font-family: monospace;
+  position: absolute;
+  top: 350px;
+  right: 500px;
+  padding-left: 20px;
+}
